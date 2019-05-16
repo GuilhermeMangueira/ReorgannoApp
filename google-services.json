@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "587575160795",
+    "firebase_url": "https://reorgannoapp.firebaseio.com",
+    "project_id": "reorgannoapp",
+    "storage_bucket": "reorgannoapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:587575160795:android:76a9127f7e62ee1c",
+        "android_client_info": {
+          "package_name": "com.example.reorgannoapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "587575160795-gv7pp9e5hh53hncajn0entiqvggordvg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.reorgannoapp",
+            "certificate_hash": "7e3162b4964e66812d082e5c0d1f785d40fcdc51"
+          }
+        },
+        {
+          "client_id": "587575160795-fq6khr3uvk6mnb3er7gmbsu3aqv1vso9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBfOcVNnfTkkoyjgxCx02HVu5zhVkj580s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "587575160795-fq6khr3uvk6mnb3er7gmbsu3aqv1vso9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
