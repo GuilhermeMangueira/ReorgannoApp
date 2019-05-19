@@ -1,5 +1,6 @@
 package com.example.reorgannoapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     EditText revendedor_name;
     EditText revendedor_telefone;
     Button button_cadastrar;
+    Button button;
 
     DatabaseReference databaseRevendedores;
 
@@ -37,6 +39,19 @@ public class MainActivity extends AppCompatActivity {
                 addRevendedor();
             }
         });
+
+        button = (Button) findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity2();
+            }
+        });
+    }
+
+    public void openActivity2(){
+        Intent intent = new Intent(this, Activity2.class);
+        startActivity(intent);
     }
 
     private void addRevendedor(){
@@ -61,5 +76,8 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Favor insira um nome",Toast.LENGTH_LONG).show();
         }
 
+    }
+    public void voltar(View v){
+        // metodo vazio para sair o erro
     }
 }
