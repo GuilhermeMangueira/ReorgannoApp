@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
 
     DatabaseReference databaseRevendedores;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 openActivity2();
             }
         });
+
     }
 
     public void openActivity2(){
