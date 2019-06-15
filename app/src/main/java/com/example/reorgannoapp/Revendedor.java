@@ -6,14 +6,22 @@ public class Revendedor {
     String revendedor_nome;
     String revendedor_telefone;
 
+    boolean hidratante;
+
+    double lat;
+    double lon;
+
     public Revendedor(){
 
     }
 
-    public Revendedor(String id, String nome, String telefone){
+    public Revendedor(String id, String nome, String telefone,double lat,double lon,boolean hidratante){
         this.revendedor_id = id;
         this.revendedor_nome= nome;
         this.revendedor_telefone = telefone;
+        this.lat=lat;
+        this.lon = lon;
+        this.hidratante = hidratante;
     }
 
     public String getRevendedor_id() {
@@ -26,5 +34,17 @@ public class Revendedor {
 
     public String getRevendedor_telefone() {
         return revendedor_telefone;
+    }
+
+    public boolean isHidratante() {
+        return hidratante;
+    }
+
+    public double getLat() {
+        return lat;
+    }
+
+    public double getLon() {
+        return lon;
     }
 }
