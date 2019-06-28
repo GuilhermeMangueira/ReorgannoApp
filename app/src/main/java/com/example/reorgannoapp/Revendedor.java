@@ -2,7 +2,7 @@ package com.example.reorgannoapp;
 
 public class Revendedor {
 
-    String revendedor_id;
+    String user_id;
     String revendedor_nome;
     String revendedor_telefone;
 
@@ -16,7 +16,7 @@ public class Revendedor {
     }
 
     public Revendedor(String id, String nome, String telefone,double lat,double lon,boolean hidratante){
-        this.revendedor_id = id;
+        this.user_id = id;
         this.revendedor_nome= nome;
         this.revendedor_telefone = telefone;
         this.lat=lat;
@@ -24,8 +24,8 @@ public class Revendedor {
         this.hidratante = hidratante;
     }
 
-    public String getRevendedor_id() {
-        return revendedor_id;
+    public String getUser_id() {
+        return user_id;
     }
 
     public String getRevendedor_nome() {
