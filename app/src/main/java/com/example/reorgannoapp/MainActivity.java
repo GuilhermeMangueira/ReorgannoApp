@@ -1,33 +1,27 @@
 package com.example.reorgannoapp;
 
-import android.Manifest;
 import android.content.Intent;
-import android.location.Location;
-import android.support.v4.app.ActivityCompat;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Switch;
 import android.widget.Toast;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText revendedor_name;
-    EditText revendedor_telefone;
-    Button button_cadastrar;
-    Button button_localizacao;
-
-    Switch hidratante_switch;
-    double lat;
-    double lon;
-
-    DatabaseReference databaseRevendedores;
+    private FirebaseAuth mAuth;
+    Button registrar;
+    Button logar;
+    EditText email;
+    EditText senha;
 
 
     @Override
@@ -35,69 +29,53 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        databaseRevendedores = FirebaseDatabase.getInstance().getReference("revendedores");
+        registrar = (Button) findViewById(R.id.buttonRegistrarNovo);
+        logar = (Button)findViewById(R.id.buttonLogar);
+        email = (EditText)findViewById(R.id.Login);
+        senha = (EditText)findViewById(R.id.Senha);
 
-        revendedor_name = (EditText)findViewById(R.id.revendedor_name);
-        revendedor_telefone  = (EditText) findViewById(R.id.revendedor_telefone);
-        button_cadastrar = (Button)findViewById(R.id.button_cadastrar);
-        button_localizacao = (Button) findViewById(R.id.button_localizacao);
-        hidratante_switch = (Switch) findViewById(R.id.hidratante_switch);
+        mAuth = FirebaseAuth.getInstance();
 
-        lat = 0;
-        lon = 0;
-
-        ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION},123);
-
-        button_localizacao.setOnClickListener(new View.OnClickListener() {
+        registrar.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View view) {
-                LocalizacaoGPS localizador = new LocalizacaoGPS(getApplicationContext());
-                Location location = localizador.getLocation();
-                if(location != null){
-                     lat = location.getLatitude();
-                     lon = location.getLongitude();
-                }
+            public void onClick(View v){
+                startActivity(new Intent(MainActivity.this, Register.class));
             }
         });
 
-        button_cadastrar.setOnClickListener(new View.OnClickListener() {
+        logar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                addRevendedor();
+                logar();
             }
         });
 
 
-    }
-
-
-    private void addRevendedor(){
-        String nome = revendedor_name.getText().toString().trim();
-        String telefone = revendedor_telefone.getText().toString().trim();
-
-        if((lat ==lon)&& lat==0){
-            Toast.makeText(this,"Por favor libere a localizacao",Toast.LENGTH_LONG).show();
-        }
-
-        if(!TextUtils.isEmpty(nome)){
-            if(!TextUtils.isEmpty(telefone)){
-
-                String id = databaseRevendedores.push().getKey();
-                boolean hidratante = hidratante_switch.isChecked();
-
-                Revendedor revendedor = new Revendedor(id, nome, telefone, lat,lon, hidratante);
-
-                databaseRevendedores.child(id).setValue(revendedor);
-
-                Toast.makeText(this, "Revendedor adicionado", Toast.LENGTH_LONG).show();
-
-            }else{
-                Toast.makeText(this, "Favor insira um telefone", Toast.LENGTH_LONG).show();
-            }
-        }else{
-            Toast.makeText(this, "Favor insira um nome",Toast.LENGTH_LONG).show();
-        }
 
     }
+
+ private void logar(){
+        String email = this.email.getText().toString();
+        String password = this.senha.getText().toString();
+     mAuth.signInWithEmailAndPassword(email, password)
+             .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                 @Override
+                 public void onComplete(@NonNull Task<AuthResult> task) {
+                     if (task.isSuccessful()) {
+                         // Sign in success, update UI with the signed-in user's information
+                         FirebaseUser user = mAuth.getCurrentUser();
+                         Toast.makeText(MainActivity.this, "sucesso",Toast.LENGTH_SHORT).show();
+                         startActivity(new Intent(MainActivity.this,ActivityInfo.class ));
+                     } else {
+                         // If sign in fails, display a message to the user.
+                         Toast.makeText(MainActivity.this, "Authentication failed.",
+                                 Toast.LENGTH_SHORT).show();
+
+                     }
+
+                     // ...
+                 }
+             });
+ }
 
 }

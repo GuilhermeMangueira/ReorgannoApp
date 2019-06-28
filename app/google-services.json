@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "587575160795-mghifcbuushmg81qa6o2e0e7g145783l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.reorgannoapp",
+            "certificate_hash": "362662871d4cc371772981fa20ec14a703438627"
+          }
+        },
+        {
           "client_id": "587575160795-gv7pp9e5hh53hncajn0entiqvggordvg.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
