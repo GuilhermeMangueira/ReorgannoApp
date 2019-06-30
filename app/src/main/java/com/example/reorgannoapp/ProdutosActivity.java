@@ -53,6 +53,9 @@ public class ProdutosActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 revendedor = viewData(dataSnapshot);
+                if(revendedor == null){
+                    return;
+                }
                 hidratante.setChecked(revendedor.getHidratante());
 
             }

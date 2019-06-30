@@ -100,6 +100,7 @@ public class RevendedorActivity extends AppCompatActivity {
 
         if(rev == null){
             databaseRevendedores.push();
+            button_cadastrar.setText("Cadastrar");
         }
         else{
           revendedor_name.setText(rev.getRevendedor_nome());
@@ -143,7 +144,10 @@ public class RevendedorActivity extends AppCompatActivity {
                 Revendedor revendedor = new Revendedor( nome, telefone, lat,lon, hidratante);
 
                 databaseRevendedores.child(id).setValue(revendedor);
-
+                if(button_cadastrar.getText().equals("Cadastrar")){
+                    Toast.makeText(this,"Revendedor Cadastrado", Toast.LENGTH_LONG).show();
+                    button_cadastrar.setText("Atualizar");
+                }
 
                 Toast.makeText(this, "Revendedor Atualizado", Toast.LENGTH_LONG).show();
 

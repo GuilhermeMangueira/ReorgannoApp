@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FBEEC2"
     tools:context=".ActivityInfo">
 
     <TextView
@@ -13,6 +14,7 @@
         android:layout_marginStart="36dp"
         android:layout_marginLeft="36dp"
         android:layout_marginBottom="4dp"
+        android:background="#00FFFDFD"
         android:text="Nome"
         app:layout_constraintBottom_toTopOf="@+id/nomeView"
         app:layout_constraintStart_toStartOf="parent" />
@@ -24,6 +26,7 @@
         android:layout_marginTop="12dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:background="#00FFFFFF"
         app:layout_constraintEnd_toStartOf="@+id/lonView"
         app:layout_constraintHorizontal_bias="0.304"
         app:layout_constraintStart_toStartOf="@+id/textView13"
@@ -35,6 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
         android:layout_marginLeft="36dp"
+        android:background="#00FFFFFF"
         android:text="Telefone"
         app:layout_constraintBottom_toTopOf="@+id/telefoneView"
         app:layout_constraintStart_toStartOf="parent" />
@@ -58,6 +62,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="24dp"
+        android:background="#1A646464"
         android:text="Revendedor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/buttonProdutos"
@@ -71,6 +76,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="24dp"
+        android:background="#1A646464"
         android:text="Produtos"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -92,6 +98,7 @@
         android:layout_marginStart="36dp"
         android:layout_marginLeft="36dp"
         android:layout_marginTop="304dp"
+        android:background="#00FFFFFF"
         android:text="Localização"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -103,6 +110,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="28dp"
         android:layout_marginRight="28dp"
+        android:background="#00FFFFFF"
         app:layout_constraintEnd_toEndOf="@+id/textView13"
         app:layout_constraintTop_toTopOf="@+id/textView13" />
 
@@ -127,5 +135,16 @@
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="330dp"
+        android:layout_height="112dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo1" />
 
 </android.support.constraint.ConstraintLayout>
