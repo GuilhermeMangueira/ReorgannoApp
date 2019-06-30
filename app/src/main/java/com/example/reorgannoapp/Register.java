@@ -61,6 +61,7 @@ public class Register extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     FirebaseUser user = mAuth.getCurrentUser();
+                    Toast.makeText(Register.this,"Conta criada com sucesso",Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(Register.this, MainActivity.class));
                 }
 
